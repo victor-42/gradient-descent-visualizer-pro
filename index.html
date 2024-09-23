@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>gradient descent visualiser</title>
+    <meta name="description" content="a visual supplement to Teach LA's curriculum on gradient descent" />
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+    <section class="hero is-fullheight" id="playground">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1">
+                   Gradient Descent Demonstration
+                </h1>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Function</label>
+                            <div class="control">
+                                <input class="input is-info" type="text" id="function-input" value="x^2+x" />
+                            </div>
+                        </div>
+                        <p>functions you should try (click to auto-format):</p>
+                        <div class="buttons">
+                            <button class="button is-info is-light" id="fn-x-2">x<sup><sup>2</sup></sup></button>
+                            <button class="button is-info is-light" id="fn-sin-x">sin(x)</button>
+                            <button class="button is-info is-light" id="fn-sin-wild">wsin(x)</button>
+                            <button class="button is-info is-light" id="fn-1-x">1/x</button>
+                            <button class="button is-info is-light" id="fn-poly-x">poly</button>
+                        </div>
+                        <div class="field">
+                            <label class="label">Starting Point</label>
+                            <div class="control">
+                                <input class="input is-info" id="initial-start" type="number" value="5" />
+                            </div>
+                        </div>
+                        <button class="button is-info" id="start-button">
+                            <span class="icon is-small">
+                                <i class="fas fa-sliders-h"></i>
+                            </span>
+                            <span>Set Up</span>
+                        </button>
+                        <hr />
+                        <div class="field">
+                            <label class="label">Learning Rate</label>
+                            <div class="control">
+                                <input class="input is-info" id="learning-rate" type="number" value="0.25" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Momentum</label>
+                            <div class="control">
+                                <input class="input is-info" id="momentum" type="number" value="0.33" />
+                            </div>
+                        </div>
+                        <button class="button is-primary" id="auto-button">
+                            <span class="icon is-small">
+                                <i id="auto-button-icon" class="fas fa-play"></i>
+                            </span>
+                            <span id="auto-button-span">Start</span>
+                        </button>
+                        <button class="button is-info" id="update-button">
+                            <span class="icon is-small">
+                                <i class="fas fa-redo-alt"></i>
+                            </span>
+                            <span>Next Iteration</span>
+                        </button>
+
+                    </div>
+                    <div class="column">
+                        <div class="box">
+                            <div id="graph-1"></div>
+                        </div>
+                        <div class="tags has-addons are-large">
+                            <span class="tag is-info">Current Point</span>
+                            <span class="tag is-dark" id="current-pos">set up your graph!</span>
+                        </div>
+                        <div class="tags has-addons are-large is-hidden" id="last-change-wrapper">
+                            <span class="tag is-primary">Last Change</span>
+                            <span class="tag is-dark" id="current-change"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/d3.min.js?v3.5.17"></script>
+    <script src="js/function-plot.js?v1.19.1"></script>
+    <script src="js/math.min.js?v6.2.5"></script>
+    <script src="js/graph.js"></script>
+</body>
+
+</html>
+<!-- Inspired by https://github.com/uclaacm/gradient-descent-visualiser-->
